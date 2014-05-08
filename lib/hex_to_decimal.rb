@@ -25,9 +25,8 @@ end
 def hex_to_decimal(string)
   total = 0
   hex_array = string.split(//)
-  hex_array.each do |char|
-    this = integer(char)*16**(hex_array.index(char) - (hex_array.length - 1)).abs
-    total += integer(char)*16**(hex_array.index(char) - (hex_array.length - 1)).abs
+  hex_array.each_with_index do |char, index|
+    total += integer(char)*16**(index - (hex_array.length - 1)).abs
   end
   total
 end
